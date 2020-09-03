@@ -10,7 +10,6 @@ interface productsType {
 const Products = () => {
   const { products } = useSelector((state: productsType) => state);
   const dispatch = useDispatch();
-  console.log(products);
   return (
     <div>
       <section className="text-gray-500 body-font bg-gray-900">
