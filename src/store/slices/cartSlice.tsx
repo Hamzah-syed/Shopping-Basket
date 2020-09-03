@@ -80,7 +80,7 @@ const initialState: productStateType[] = [
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley",
     image: images.Shoe7,
     count: 1,
-    added: false,
+    added: true,
   },
   {
     id: "8",
@@ -91,7 +91,7 @@ const initialState: productStateType[] = [
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley",
     image: images.Shoe8,
     count: 1,
-    added: false,
+    added: true,
   },
   {
     id: "9",
@@ -121,7 +121,18 @@ export const cartSlice = createSlice({
         };
       });
     },
+    REMOVE: (state, action) => {
+      return state.map((product) => {
+        if (product.id !== action.payload) {
+          return product;
+        }
+        return {
+          ...product,
+          added: false,
+        };
+      });
+    },
   },
 });
 
-export const { ADD } = cartSlice.actions;
+export const { ADD, REMOVE } = cartSlice.actions;
