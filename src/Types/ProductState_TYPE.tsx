@@ -5,6 +5,6 @@ export type productStateType = {
   price: Number;
   description: String;
   image: String;
-  count: Number;
+  count: number;
   added: Boolean;
 };

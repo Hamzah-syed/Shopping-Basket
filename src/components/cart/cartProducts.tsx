@@ -1,7 +1,7 @@
 import React from "react";
 //redux
 import { useSelector, useDispatch } from "react-redux";
-import { REMOVE } from "../../store/slices/cartSlice";
+import { REMOVE, INCREMENT, DECREMENT } from "../../store/slices/cartSlice";
 //types
 import { productStateType } from "../../Types/ProductState_TYPE";
 //icon
@@ -46,8 +46,22 @@ const CartProducts = () => {
                   (product: productStateType, i: number) => (
                     <tr key={i}>
                       <td className="px-4 py-3">{product.shoeName}</td>
-                      <td className="px-4 py-3">{product.count}</td>
-                      <td className="px-4 py-3">{product.price}</td>
+                      <td className="px-4 py-3">
+                        <span
+                          className="px-3 bg-gray-800 mx-2 rounded text-xs py-1 hover:bg-gray-700 cursor-pointer"
+                          onClick={() => dispatch(DECREMENT(product.id))}
+                        >
+                          -
+                        </span>
+                        {product.count}{" "}
+                        <span
+                          className=" px-3 bg-gray-800 mx-2 rounded text-xs py-1 hover:bg-gray-700 cursor-pointer"
+                          onClick={() => dispatch(INCREMENT(product.id))}
+                        >
+                          +
+                        </span>
+                      </td>
+                      <td className="px-4 py-3">{product.price}rs </td>
                       <td className="px-4 py-3 w-20 text-lg text-white flex justify-center">
                         <span onClick={() => dispatch(REMOVE(product.id))}>
                           <img
@@ -80,9 +94,9 @@ const CartProducts = () => {
               </svg>
             </a>
 
-            <button className="flex ml-auto px-8 bg-gray-800 py-3 rounded">
+            <div className="flex ml-auto px-8 bg-gray-800 py-3 rounded">
               Total: 1000$
-            </button>
+            </div>
           </div>
         </div>
       </section>

@@ -1,8 +1,8 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { ADD } from "../../store/slices/cartSlice";
 //type
 import { productStateType } from "../../Types/ProductState_TYPE";
-import { ADD } from "../../store/slices/cartSlice";
 
 interface productsType {
   products: productStateType[];

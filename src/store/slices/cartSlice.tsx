@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { productStateType } from "../../Types/ProductState_TYPE";
 //images Path
 import { images } from "../imagesPaths/shoesImages";
+import { count } from "console";
 
 const initialState: productStateType[] = [
   {
@@ -111,28 +112,55 @@ export const cartSlice = createSlice({
   initialState: initialState,
   reducers: {
     ADD: (state, action) => {
+      //this if condition will run 8 times because there are 9 product in it then it will go to else when it will find id which is === palyoad
       return state.map((product) => {
         if (product.id !== action.payload.id) {
           return product;
-        }
-        return {
-          ...product,
-          added: true,
-        };
+        } else
+          return {
+            ...product,
+            added: true,
+          };
       });
     },
     REMOVE: (state, action) => {
       return state.map((product) => {
+        //this if condition will run 8 times because there are 9 product in it then it will go to else when it will find id which is === palyoad
         if (product.id !== action.payload) {
           return product;
+        } else {
+          return {
+            ...product,
+            added: false,
+          };
         }
-        return {
-          ...product,
-          added: false,
-        };
+      });
+    },
+    INCREMENT: (state, action) => {
+      return state.map((product) => {
+        if (product.id !== action.payload) {
+          return product;
+        } else {
+          return {
+            ...product,
+            count: product.count + 1,
+          };
+        }
+      });
+    },
+    DECREMENT: (state, action) => {
+      return state.map((product) => {
+        if (product.id !== action.payload) {
+          return product;
+        } else {
+          return {
+            ...product,
+            count: product.count - 1,
+          };
+        }
       });
     },
   },
 });
 
-export const { ADD, REMOVE } = cartSlice.actions;
+export const { ADD, REMOVE, INCREMENT, DECREMENT } = cartSlice.actions;
