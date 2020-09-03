@@ -1,9 +1,11 @@
 import React from "react";
+//pages
+import Home from "./pages/index";
 
 function App() {
   return (
     <div className="App">
-      <h1>Hamzah</h1>
+      <Home />
     </div>
   );
 }
