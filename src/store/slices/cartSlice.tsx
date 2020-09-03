@@ -111,7 +111,15 @@ export const cartSlice = createSlice({
   initialState: initialState,
   reducers: {
     ADD: (state, action) => {
-      return;
+      return state.map((product) => {
+        if (product.id !== action.payload.id) {
+          return product;
+        }
+        return {
+          ...product,
+          added: true,
+        };
+      });
     },
   },
 });
