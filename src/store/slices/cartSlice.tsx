@@ -2,7 +2,6 @@ import { createSlice } from "@reduxjs/toolkit";
 import { productStateType } from "../../Types/ProductState_TYPE";
 //images Path
 import { images } from "../imagesPaths/shoesImages";
-import { count } from "console";
 
 const initialState: productStateType[] = [
   {

@@ -1,10 +1,10 @@
 export type productStateType = {
-  id: String;
-  shoeName: String;
-  slug: String;
-  price: Number;
-  description: String;
-  image: String;
+  id: string;
+  shoeName: string;
+  slug: string;
+  price: number;
+  description: string;
+  image: string;
   count: number;
-  added: Boolean;
+  added: boolean;
 };

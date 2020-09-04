@@ -15,7 +15,6 @@ const CartButton = () => {
   const filteredDataLength = products.filter(
     (product) => product.added === true
   ).length;
-  console.log(filteredDataLength);
 
   return (
     <Link to="/cart">

@@ -17,15 +17,15 @@ const Products = () => {
           <div className="flex flex-wrap w-full mb-20">
             <div className="lg:w-1/2 w-full mb-6 lg:mb-0">
               <h1 className="sm:text-3xl text-2xl font-medium title-font mb-2 text-white">
-                Pitchfork Kickstarter Taxidermy
+                Good Shoes Take You Good Places
               </h1>
               <div className="h-1 w-20 bg-indigo-500 rounded"></div>
             </div>
             <p className="lg:w-1/2 w-full leading-relaxed text-base">
-              Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical
-              gentrify, subway tile poke farm-to-table. Franzen you probably
-              haven't heard of them man bun deep jianbing selfies heirloom prism
-              food truck ugh squid celiac humblebrag.
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi
+              quod doloremque quaerat tempora maxime voluptatibus fugit
+              perferendis impedit est? Cumque necessitatibus quos sequi at
+              eligendi itaque iure reprehenderit qui tempora.
             </p>
           </div>
 
@@ -49,11 +49,14 @@ const Products = () => {
                   <p className="leading-relaxed text-base">{product.price}rs</p>
                   <div className="pt-3">
                     <button
-                      className="py-1 px-3 focus:outline-none hover:bg-indigo-700  rounded bg-indigo-600 text-white"
+                      className={`py-1 px-3 focus:outline-none hover:bg-indigo-700  rounded bg-indigo-600 text-white ${
+                        product.added ? "cursor-not-allowed " : "cursor-pointer"
+                      }`}
                       onClick={() => dispatch(ADD(product))}
+                      disabled={product.added ? true : false}
                     >
                       {" "}
-                      Add To Cart
+                      {product.added ? "Added" : "Add To Cart"}
                     </button>
                   </div>
                 </div>
